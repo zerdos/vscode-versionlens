@@ -54,7 +54,7 @@
     "mock-require": "3.0.3",
     "rimraf": "3.0.2",
     "typescript": "3.8.3",
-    "vscode": "1.1.36"
+    "vscode": "1.1.37"
   },
   "dependencies": {
     "minimatch": "3.0.4",
