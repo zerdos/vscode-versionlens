@@ -8,8 +8,8 @@
   },
   "authors": ["Peter Flannery", "Zoltan Erdos"],
   "license": "MIT",
-  "version": "25.0.0",
-  "publisher": "pflannery",
+  "version": "25.0.1",
+  "publisher": "zerdos",
   "displayName": "Version Lens Evergreen",
   "icon": "images/logo.png",
   "engines": {
