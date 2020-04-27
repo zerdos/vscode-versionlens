@@ -10,7 +10,7 @@
   "license": "MIT",
   "version": "25.0.0",
   "publisher": "pflannery",
-  "displayName": "Version Lens",
+  "displayName": "Version Lens Evergreen",
   "icon": "images/logo.png",
   "engines": {
     "vscode": "^1.44.2"
