@@ -48,7 +48,7 @@
   "devDependencies": {
     "@devcontainer/focal-devcontainer": "^5.4.0",
     "@types/mocha": "^7.0.2",
-    "@types/node": "^12",
+    "@types/node": "^13.13.4",
     "eslint": "^6.8.0",
     "mocha-ui-esm": "1.0.0-alpha.4",
     "mock-require": "3.0.3",
