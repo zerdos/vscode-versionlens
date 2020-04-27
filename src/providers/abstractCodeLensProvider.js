@@ -17,7 +17,7 @@ export class AbstractCodeLensProvider {
     this._onChangeCodeLensesEmitter.fire();
   }
 
-  resolveCodeLens(codeLens, token) {
+  resolveCodeLens(codeLens) {
     if (codeLens instanceof PackageCodeLens) {
 
       // set in progress

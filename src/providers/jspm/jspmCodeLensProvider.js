@@ -12,7 +12,7 @@ import { jspmPackageParser } from './jspmPackageParser';
 
 export class JspmCodeLensProvider extends NpmCodeLensProvider {
 
-  provideCodeLenses(document, token) {
+  provideCodeLenses(document) {
     if (appSettings.showVersionLenses === false)
       return [];
 

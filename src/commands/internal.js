@@ -24,7 +24,7 @@ export function linkCommand(codeLens) {
   opener(codeLens.package.meta.remoteUrl);
 }
 
-export function showingProgress(file) {
+export function showingProgress() {
   // currently do nothing
 
   // TODO attempt cancel?

@@ -5,7 +5,7 @@ import * as InternalCommands from './internal';
 export default function register() {
   const { commands } = require('vscode');
 
-  function mapCommand(commandName, index) {
+  function mapCommand(commandName) {
     const mapObject = this
     const id = `${appSettings.extensionName}.${commandName}`;
     const method = mapObject[commandName];

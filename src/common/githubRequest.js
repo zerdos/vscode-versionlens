@@ -10,7 +10,7 @@ class GithubRequest {
   constructor() {
     this.cache = new ExpiryCacheMap();
     this.headers = {
-      accept: 'application\/vnd.github.v3+json',
+      accept: 'application/vnd.github.v3+json',
       'user-agent': 'vscode-contrib/vscode-versionlens'
     };
   }
@@ -68,13 +68,13 @@ class GithubRequest {
 
         const firstEntry = entries[0];
         return this.getCommitBySha(userRepo, firstEntry.commit.sha)
-          .then(entry => ({ category: 'tag', version: firstEntry.name }));
+          .then(() => ({ category: 'tag', version: firstEntry.name }));
       })
   }
 
   repoExists(userRepo) {
     return this.httpHead(userRepo)
-      .then(resp => true)
+      .then(() => true)
       .catch(resp => resp.status !== 403)
   }
 
@@ -83,6 +83,7 @@ class GithubRequest {
       .catch(error => {
         // handles any 404 errors during a request for the latest release
         if (error.status === 404 && category === 'releases/latest') {
+          const url = generateGithubUrl(userRepo, category, queryParams);
           return this.cache.set(
             url,
             null

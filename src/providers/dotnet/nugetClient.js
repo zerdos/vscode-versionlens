@@ -41,6 +41,6 @@ export function nugetGetPackageVersions(packageName) {
       if (dataResults.length === 0) return Promise.reject(results[0]); // If no arrays, no successful resolves
       return Promise.resolve(dataResults[0]);
     },
-    _ => Promise.reject({ status: 404 })
+    () => Promise.reject({ status: 404 })
   )
 }

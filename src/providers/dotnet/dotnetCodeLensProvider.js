@@ -22,7 +22,7 @@ export class DotNetCodeLensProvider extends AbstractCodeLensProvider {
     }
   }
 
-  provideCodeLenses(document, token) {
+  provideCodeLenses(document) {
     if (appSettings.showVersionLenses === false)
       return [];
 

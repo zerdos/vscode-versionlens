@@ -5,7 +5,6 @@
 import {
   formatTagNameRegex,
   sortDescending,
-  createChainMutator
 } from './utils.js';
 
 const semver = require('semver');
@@ -206,7 +205,7 @@ export function pluckTagsAndReleases(versions) {
  */
 export function reduceTagsByUniqueNames() {
   return this.reduce(
-    function (unique, current, currentIndex, original) {
+    function (unique, current) {
       if (unique.findIndex(x => x.name === current.name) === -1) {
         unique.push(current);
       }
@@ -222,7 +221,7 @@ export function reduceTagsByUniqueNames() {
  */
 export function removeAmbiguousTagNames() {
   return this.reduce(
-    function (results, current, currentIndex, original) {
+    function (results, current) {
       let { name, version } = current;
 
       const regexResult = formatTagNameRegex.exec(name);
@@ -350,13 +349,6 @@ export function buildTagsFromVersionMap(versionMap, requestedVersion) {
   ];
 }
 
-const versionTagFilterRules = createChainMutator([
-  removeExactVersions,
-  removeOlderVersions,
-  removeTagsWithName,
-  removeAmbiguousTagNames,
-  reduceTagsByUniqueNames
-]);
 
 /**
  * @export

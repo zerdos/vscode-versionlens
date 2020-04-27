@@ -56,7 +56,7 @@ export function dotnetPackageParser(name, requestedVersion, appContrib) {
         );
 
       // map the tags to package dependencies
-      return filteredTags.map((tag, index) => {
+      return filteredTags.map((tag) => {
         const packageInfo = {
           type: 'nuget',
           tag

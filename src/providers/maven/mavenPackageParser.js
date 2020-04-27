@@ -3,7 +3,7 @@ import appSettings from 'common/appSettings';
 import * as PackageFactory from 'common/packageGeneration';
 import { buildMapFromVersionList, buildTagsFromVersionMap } from './versionUtils'
 
-export function mavenPackageParser(name, requestedVersion, appContrib) {
+export function mavenPackageParser(name, requestedVersion) {
 
   // get all the versions for the package
   return mavenGetPackageVersions(name)
@@ -32,7 +32,7 @@ export function mavenPackageParser(name, requestedVersion, appContrib) {
         );
       }
       return filteredTags
-        .map((tag, index) => {
+        .map((tag) => {
           // generate the package data for each tag
           const meta = {
             type: 'maven',

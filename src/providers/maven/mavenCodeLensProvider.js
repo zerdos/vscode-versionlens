@@ -19,11 +19,11 @@ export class MavenCodeLensProvider extends AbstractCodeLensProvider {
     }
   }
 
-  provideCodeLenses(document, token) {
+  provideCodeLenses(document) {
     if (appSettings.showVersionLenses === false)
       return [];
 
-    return loadMavenRepositories().then(_ => {
+    return loadMavenRepositories().then(() => {
       const dependencyNodes = findNodesInXmlContent(
         document.getText(),
         document,

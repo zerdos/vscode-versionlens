@@ -7,11 +7,11 @@ import { clearDecorations } from 'editor/decorations';
 const { workspace } = require('vscode');
 
 export const fileDependencyRegex = /^file:(.*)$/;
-export const gitHubDependencyRegex = /^\/?([^:\/\s]+)(\/)([\w\-\.]+[^#?\s]+)(.*)?(#[\w\-]+)?$/;
+export const gitHubDependencyRegex = /^\/?([^:/\s]+)(\/)([\w\-.]+[^#?\s]+)(.*)?(#[\w-]+)?$/;
 export const stripSymbolFromVersionRegex = /^(?:[^0-9]+)?(.+)$/;
 export const extractSymbolFromVersionRegex = /^([^0-9]*)?.*$/;
 export const semverLeadingChars = ['^', '~', '<', '<=', '>', '>=', '~>'];
-export const formatTagNameRegex = /^[^0-9\-]*/;
+export const formatTagNameRegex = /^[^0-9-]*/;
 
 export function formatWithExistingLeading(existingVersion, newVersion) {
   const regExResult = extractSymbolFromVersionRegex.exec(existingVersion);
@@ -55,42 +55,4 @@ export function sortDescending(a, b) {
   if (a < b)
     return 1;
   return 0;
-}
-
-export function createChainMutator(mutators) {
-  const propertyMap = {
-    state: {
-      value: null,
-      enumerable: false,
-      writable: true
-    },
-    toValue: {
-      value: function () {
-        return this.state;
-      }
-    },
-    set: {
-      value: function (newState) {
-        this.state = newState;
-        return this;
-      }
-    },
-    log: {
-      value: function (...args) {
-        console.log.call(console, ...args, this.state);
-        return this;
-      }
-    },
-  };
-
-  mutators.forEach(fn => {
-    propertyMap[fn.name] = {
-      value: function (...args) {
-        this.state = fn.call(this.state, ...args);
-        return this;
-      }
-    }
-  });
-
-  return Object.create({}, propertyMap);
 }

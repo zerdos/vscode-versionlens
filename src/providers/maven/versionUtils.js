@@ -1,7 +1,7 @@
 // Sort versions using maven ComparableVersionTest.java as truth
 // https://github.com/apache/maven/blob/master/maven-artifact/src/test/java/org/apache/maven/artifact/versioning/ComparableVersionTest.java
 
-export function buildMapFromVersionList(versions, requestedVersion) {
+export function buildMapFromVersionList(versions) {
   let versionMap = { allVersions: [], taggedVersions: [], releases: [] }
   versions = versions.sort(compareVersions).reverse()
   versionMap.allVersions = versions.slice()

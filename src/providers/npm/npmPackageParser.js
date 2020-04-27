@@ -224,7 +224,7 @@ export function parseNpmDistTags(packagePath, name, requestedVersion, maxSatisfy
 
       // map the tags to packages
       return filteredTags
-        .map((tag, index) => {
+        .map((tag) => {
           // generate the package data for each tag
           const meta = {
             type: 'npm',

@@ -27,9 +27,9 @@ export function loadMavenRepositories() {
         local_repositories.push(repositoryXml.childNamed("url").val)
       })
       return local_repositories;
-    }).catch(err => {
+    }).catch(() => {
       return MAVEN_CENTRAL
-    }), new Promise(function (resolve, reject) {
+    }), new Promise(function (resolve) {
       let repositories = []
 
       if (window.activeTextEditor) {
@@ -62,7 +62,7 @@ export function mavenGetPackageVersions(packageName) {
     }
     if (repository.startsWith("file://")) {
       const queryUrl = `${repository.replace("file://", "")}${search}/maven-metadata-local.xml`;
-      return new Promise(function (resolve, reject) {
+      return new Promise(function (resolve) {
         fs.readFile(queryUrl, (err, data) => {
           console.log(err)
           console.log(data)
@@ -100,7 +100,7 @@ export function mavenGetPackageVersions(packageName) {
             versions.push(xmlVersionNode.val);
           })
           return versions
-        }).catch(function (err) {
+        }).catch(function () {
           return []
         })
     }

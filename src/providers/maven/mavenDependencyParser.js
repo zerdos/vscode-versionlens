@@ -38,12 +38,10 @@ export function extractDependencyNodes(rootNode, document, filterProperties) {
         if (!filterProperties.includes(group.name))
           return;
 
-        const includeRange = {
+        collectFromChildVersionTag(group, {
           start: group.startTagPosition,
           end: group.startTagPosition,
-        };
-
-        collectFromChildVersionTag(group, includeRange, collector)
+        }, collector);
         break;
       default:
         break;
@@ -96,6 +94,7 @@ function collectFromChildVersionTag(parentNode, includeRange, collector) {
 
     let match = /\$\{(.*)\}/ig.exec(artifact);
     if (match) {
+      let properties = extractPropertiesFromFile();
       let property = properties.filter(property => {
         return property.name === match[1]
       })[0]

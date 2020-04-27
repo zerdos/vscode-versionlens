@@ -6,32 +6,32 @@ import appSettings from 'common/appSettings';
 import { clearDecorations } from 'editor/decorations';
 import * as CodeLensProviders from 'providers/codeLensProviders';
 
-export function showTaggedVersions(file) {
+export function showTaggedVersions() {
   appSettings.showTaggedVersions = true;
   CodeLensProviders.reloadActiveProviders();
 }
 
-export function hideTaggedVersions(file) {
+export function hideTaggedVersions() {
   appSettings.showTaggedVersions = false;
   CodeLensProviders.reloadActiveProviders();
 }
 
-export function showDependencyStatuses(file) {
+export function showDependencyStatuses() {
   appSettings.showDependencyStatuses = true;
   CodeLensProviders.reloadActiveProviders();
 }
 
-export function hideDependencyStatuses(file) {
+export function hideDependencyStatuses() {
   appSettings.showDependencyStatuses = false;
   clearDecorations();
 }
 
-export function showVersionLenses(file) {
+export function showVersionLenses() {
   appSettings.showVersionLenses = true;
   CodeLensProviders.reloadActiveProviders();
 }
 
-export function hideVersionLenses(file) {
+export function hideVersionLenses() {
   appSettings.showVersionLenses = false;
   CodeLensProviders.reloadActiveProviders();
 }

@@ -32,7 +32,7 @@ export class ComposerCodeLensProvider extends AbstractCodeLensProvider {
     };
   }
 
-  provideCodeLenses(document, token) {
+  provideCodeLenses(document) {
     if (appSettings.showVersionLenses === false)
       return [];
 
@@ -53,7 +53,7 @@ export class ComposerCodeLensProvider extends AbstractCodeLensProvider {
 
     appSettings.inProgress = true;
     return this.updateOutdated()
-      .then(_ => {
+      .then(() => {
         appSettings.inProgress = false;
         return generateCodeLenses(packageCollection, document)
       })

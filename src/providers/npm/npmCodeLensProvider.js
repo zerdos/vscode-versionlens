@@ -18,8 +18,6 @@ import {
   renderPrereleaseInstalledDecoration
 } from 'editor/decorations';
 
-const { window } = require('vscode');
-
 export class NpmCodeLensProvider extends AbstractCodeLensProvider {
 
   constructor() {
@@ -37,7 +35,7 @@ export class NpmCodeLensProvider extends AbstractCodeLensProvider {
     }
   }
 
-  provideCodeLenses(document, token) {
+  provideCodeLenses(document) {
     if (appSettings.showVersionLenses === false)
       return [];
 
@@ -63,7 +61,7 @@ export class NpmCodeLensProvider extends AbstractCodeLensProvider {
       .then(codeLenses => {
         if (appSettings.showDependencyStatuses)
           return this.updateOutdated()
-            .then(_ => codeLenses)
+            .then(() => codeLenses)
 
         return codeLenses;
       })
