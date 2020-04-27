@@ -1,19 +1,19 @@
 {
   "name": "vscode-versionlens-evergreen",
-  "private": true,
+  "private": false,
   "description": "Shows the latest version for each package using code lens",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vscode-contrib/vscode-versionlens.git"
+    "url": "https://github.com/zerdos/vscode-versionlens-evergreen.git"
   },
-  "author": "Peter Flannery",
+  "authors": ["Peter Flannery", "Zoltan Erdos"],
   "license": "MIT",
-  "version": "0.25.0",
+  "version": "25.0.0",
   "publisher": "pflannery",
   "displayName": "Version Lens",
   "icon": "images/logo.png",
   "engines": {
-    "vscode": "^1.23.0"
+    "vscode": "^1.44.2"
   },
   "keywords": [
     "versions",
